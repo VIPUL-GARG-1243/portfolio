@@ -1,3 +1,5 @@
+
+
 import ClientAboutView from "@/components/client-view/about";
 import ClientContactView from "@/components/client-view/contact";
 import ClientExperienceAndEducationView from "@/components/client-view/experience";
@@ -5,13 +7,14 @@ import ClientHomeView from "@/components/client-view/home";
 import ClientProjectView from "@/components/client-view/project";
 
 async function extractAllData(currentSection) {
-  const res = await fetch(`${process.env.LINK}/api/${currentSection}/get`, {
+  const res = await fetch(`https://portfolio-6ci3yz3vl-vipul-garg-1243s-projects.vercel.app/api/${currentSection}/get`, {
     method: "GET",
     cache: "no-store",
   });
   const data = await res.json();
   return data && data.data;
 }
+
 
 export default async function Home() {
   const homeSectionData = await extractAllData("home");
